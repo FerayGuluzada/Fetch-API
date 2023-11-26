@@ -2,14 +2,14 @@
     text-align: center;
 }
 
-.cards{
+#cards{
     display:flex;
     justify-content: space-around;
     flex-wrap: wrap;
 }
 
 .card {
-    width: 35%;
+    width: 20%;
     margin: 20px;
     padding: 15px;
     border: 1px solid #ccc;
@@ -19,4 +19,17 @@
 
 img{
     width:50%;
+
+}
+
+p{
+    font-family: Gotham;
+}
+
+h1{
+    font-family: Gotham;
+}
+
+.categorySpan{
+    font-weight: bold;
 }
