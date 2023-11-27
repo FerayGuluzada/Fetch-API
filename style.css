@@ -19,6 +19,7 @@
 
 img{
     width:50%;
+    height: 100px;
 
 }
 
@@ -33,3 +34,27 @@ h1{
 .categorySpan{
     font-weight: bold;
 }
+
+.card:hover {
+    transform: scale(1.1); 
+    transition: transform 0.5s ease;
+}
+
+.product-details{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+.product-details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: space-between; /* Aligns items to top and bottom */
+    height: 100%; /* Occupy full height of parent */
+  }
+
+  .description{
+    font-size: 14px;
+  }
