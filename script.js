@@ -43,3 +43,42 @@
 } ).catch((error)=>{console.log(error)});
             
 
+const search = () => {  // for Sa for Samsung
+  const searchBox = document.getElementById("search").value.toUpperCase();
+  console.log(searchBox); //SA
+
+  const cards = document.getElementById("cards");
+  console.log(cards); // all <div id="cards">
+
+  const product = document.querySelectorAll(".card");
+  console.log(product);
+
+  const productName = cards.getElementsByTagName("h1");
+  console.log(productName); // all h1s
+
+
+
+  for(var i = 0; i < productName.length; i++)
+  {
+    let match = product[i].getElementsByTagName('h1')[0];
+    console.log(match);
+
+    if(match)
+    {
+      let textvalue = match.textContent || match.innerHTML;
+
+      if(textvalue.toUpperCase().indexOf(searchBox) > -1)
+      {
+        product[i].style.display = "";
+      } 
+
+
+      else
+      {
+        product[i].style.display = "none";
+      }
+
+
+    }
+  }
+}
