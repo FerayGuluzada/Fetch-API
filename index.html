@@ -13,10 +13,15 @@
 
   <div class="filter">
     <input type="text" id="search" placeholder="Search..." onkeyup="search()">
-    <select class="categories">
-      <option value="all">Categories</option>
-      <!-- add more later -->
-    </select>
+      <select class="categories" onchange="filterByCategory(this.value)">
+        <option value="all">All Categories</option>
+        <option value="smartphones">Smartphones</option>
+        <option value="laptops">Laptops</option>
+        <option value="fragrances">Fragrances</option>
+        <option value="skincare">Skincare</option>
+        <option value="groceries">Groceries</option>
+        <option value="home-decoration">Home Decoration</option>
+      </select>
   </div>
 
   <div id="cards">

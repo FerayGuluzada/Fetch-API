@@ -127,4 +127,28 @@ const search = () => {
 };
 
 
+const filterByCategory = (selectedCategory) => 
+{
+
+  const cards = document.querySelectorAll(".card");
+
+  cards.forEach(card => {
+    const categoryElement = card.querySelector(".category");
+    const categoryText = categoryElement.textContent.toUpperCase();
+    const category = categoryText.substring(categoryText.indexOf("CATEGORY:") + 10).trim();
+
+    if (selectedCategory === "all" || category === selectedCategory) 
+    {
+      card.style.display = "block";
+    } 
+    
+    else 
+    {
+      card.style.display = "none";
+    }
+  });
+};
+
+
+
 
