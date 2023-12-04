@@ -2,6 +2,7 @@
 .then(dummy => dummy.json())
 .then((dummy) => {
 
+    
     let card = "";
     console.log(dummy);
  
@@ -33,75 +34,12 @@
 } ).catch((error)=>{console.log(error)});
             
 
-// const search = () => {  // for Sa for Samsung
-//   const searchBox = document.getElementById("search").value.toUpperCase();
-//   console.log(searchBox); //SA
-
-//   const cards = document.getElementById("cards");
-//   console.log(cards); // all <div id="cards">
-
-//   const product = document.querySelectorAll(".card");
-//   console.log(product);
-
-//   const productName = cards.getElementsByTagName("h1");
-//   console.log(productName); // all h1s
-
-
-
-//   for(var i = 0; i < productName.length; i++)
-//   {
-//     let match = product[i].getElementsByTagName('h1')[0];
-//     console.log(match);
-
-//     if(match)
-//     {
-//       let textvalue = match.textContent || match.innerHTML;
-
-//       if(textvalue.toUpperCase().indexOf(searchBox) > -1)
-//       {
-//         product[i].style.display = "";
-//       } 
-
-
-//       else
-//       {
-//         product[i].style.display = "none";
-//       }
-
-
-//     }
-//   }
-// }
-
-// const search = () => {
-//   const searchBox = document.getElementById("search").value.toUpperCase();
-//   const cards = document.querySelectorAll(".card");
-
-//   cards.forEach(card => {
-//     const title = card.querySelector(".title").textContent.toUpperCase();
-//     const description = card.querySelector(".description").textContent.toUpperCase();
-//     const category = card.querySelector(".category").textContent.toUpperCase();
-
-//     if (
-//       title.includes(searchBox) ||
-//       description.includes(searchBox) ||
-//       category.includes(searchBox)
-//     ) 
-//     {
-//       card.style.display = "block";
-//     } 
-    
-//     else 
-//     {
-//       card.style.display = "none";
-//     }
-//   });
-// };
-
 
 const search = () => {
   const searchBox = document.getElementById("search").value.toUpperCase();
   const cards = document.querySelectorAll(".card");
+
+  const selectedCategory = document.querySelector(".categories").value;
 
   cards.forEach(card => {
     const title = card.querySelector(".title").textContent.toUpperCase();
@@ -110,40 +48,16 @@ const search = () => {
     const categoryText = categoryElement.textContent.toUpperCase();
     const category = categoryText.substring(categoryText.indexOf("CATEGORY:") + 10).trim();
 
+    const titleMatch = title.includes(searchBox);
+    const descriptionMatch = description.includes(searchBox);
+    const categoryMatch = category.includes(searchBox);
+
     if (
-      title.includes(searchBox) ||
-      description.includes(searchBox) ||
-      category.includes(searchBox)
-    ) 
-    {
+      (selectedCategory === "all" || category === selectedCategory.toUpperCase()) &&
+      (titleMatch || descriptionMatch || categoryMatch)
+    ) {
       card.style.display = "block";
-    } 
-     
-    else 
-    {
-      card.style.display = "none";
-    }
-  });
-};
-
-
-const filterByCategory = (selectedCategory) => 
-{
-
-  const cards = document.querySelectorAll(".card");
-
-  cards.forEach(card => {
-    const categoryElement = card.querySelector(".category");
-    const categoryText = categoryElement.textContent.toUpperCase();
-    const category = categoryText.substring(categoryText.indexOf("CATEGORY:") + 10).trim();
-
-    if (selectedCategory === "all" || category === selectedCategory) 
-    {
-      card.style.display = "block";
-    } 
-    
-    else 
-    {
+    } else {
       card.style.display = "none";
     }
   });
