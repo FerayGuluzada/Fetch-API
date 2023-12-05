@@ -6,3 +6,6 @@ This is a web application that shows various products on cards fetched from the 
 1) Download zip folder
 2) Extract the files
 3) Run index.html
+
+
+* To filter through categories first choose the category and then start typing in the searchbox
